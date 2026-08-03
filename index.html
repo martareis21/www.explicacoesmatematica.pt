@@ -254,6 +254,20 @@
   .sticky-cta-dot{ width:8px; height:8px; border-radius:50%; background:var(--sage); animation:dotPing 1.8s ease-in-out infinite; }
   @keyframes dotPing{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.5; transform:scale(1.4); } }
   @media (max-width:600px){ .sticky-cta{ right:16px; bottom:16px; padding:14px 18px; font-size:13px; } }
+  @media (max-width:640px) {
+
+  .cred-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cred-tag,
+  .cred-title,
+  .cred-sub,
+  .cred-desc {
+    grid-column: auto !important;
+  }
+
+}
 </style>
 </head>
 <body>
