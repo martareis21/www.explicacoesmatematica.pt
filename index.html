@@ -59,6 +59,11 @@
   }
   nav.scrolled{ padding:14px 40px; box-shadow:0 10px 26px rgba(34,48,31,0.08); }
   .nav-mark{font-family:var(--sans); font-size:12px; letter-spacing:.08em; font-weight:600; white-space:nowrap;}
+  @media (max-width:600px){
+    nav{ padding:14px 16px; }
+    .nav-mark{ font-size:9px; letter-spacing:.01em; white-space:normal; line-height:1.25; max-width:130px; }
+    .nav-right{ gap:10px; }
+  }
   .nav-links{display:flex; gap:30px; font-size:14px; font-weight:500; color:var(--muted2);}
   .nav-links a{transition:color .2s ease;}
   .nav-links a:hover{color:var(--sage-dark);}
