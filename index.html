@@ -259,6 +259,11 @@
   .sticky-cta-dot{ width:8px; height:8px; border-radius:50%; background:var(--sage); animation:dotPing 1.8s ease-in-out infinite; }
   @keyframes dotPing{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.5; transform:scale(1.4); } }
   @media (max-width:600px){ .sticky-cta{ right:16px; bottom:16px; padding:14px 18px; font-size:13px; } }
+  .scroll-progress{
+  position:fixed; top:0; left:0; height:3px; width:0%;
+  background:linear-gradient(90deg, var(--sage), var(--sage-dark));
+  z-index:100; transition:width .1s linear;
+  }
   @media (max-width:640px) {
 
   .cred-row {
@@ -276,7 +281,7 @@
 </style>
 </head>
 <body>
-
+<div class="scroll-progress" id="scrollProgress"></div>
 <nav id="mainNav">
   <div class="nav-mark">EXPLICAÇÕES DE MATEMÁTICA ONLINE · 5º AO 12º ANO</div>
   <div class="nav-links">
@@ -594,6 +599,16 @@
   const toggleNavShadow = ()=>{ mainNav.classList.toggle('scrolled', window.scrollY > 40); };
   window.addEventListener('scroll', toggleNavShadow, {passive:true});
   toggleNavShadow();
+  const scrollProgress = document.getElementById('scrollProgress');
+const updateProgress = ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgress.style.width = pct + '%';
+};
+window.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+  
 </script>
 
 </body>
